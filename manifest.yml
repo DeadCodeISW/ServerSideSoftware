@@ -1,0 +1,13 @@
+---
+applications:
+  - name: ezlabor-api
+    path: target/ezlabor-api.jar
+    memory: 4096M
+    instances: 1
+    buildpacks:
+      - java_buildpack
+    stack: cflinuxfs3
+    env:
+      JBP_CONFIG_OPEN_JDK_JRE: '{jre: { version: 15.+ }}'
+    services:
+      - mysql
