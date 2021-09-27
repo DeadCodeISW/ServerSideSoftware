@@ -29,7 +29,7 @@ public class ProvinceController {
             tags = "Province")
     @ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Should retrieve all Postulations by freelancerId",
             content = @Content(mediaType = "application/json"))})
-    @GetMapping("{regionId}/province")
+    @GetMapping("{regionId}/provinces")
     public List<ProvinceResource> getAllProvincesByRegionId(@PathVariable Long regionId){
         return provinceService.getAllProvincesByRegionId(regionId).stream().map(this::convertToResource).collect(Collectors.toList());
     }
@@ -37,7 +37,7 @@ public class ProvinceController {
             tags = "Province")
     @ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Should retrieve a Postulations by provinceId",
             content = @Content(mediaType = "application/json"))})
-    @GetMapping("{regionId}/province/{provinceId}")
+    @GetMapping("{regionId}/provinces/{provinceId}")
     public ProvinceResource getProvinceByIdAndRegionId(@PathVariable Long regionId,@PathVariable Long provinceId){
         return convertToResource(provinceService.getProvinceByIdAndRegionId(regionId,provinceId));
     }
@@ -46,7 +46,7 @@ public class ProvinceController {
             tags = "Province")
     @ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Should retrieve all Postulations by freelancerId",
             content = @Content(mediaType = "application/json"))})
-    @PostMapping("{regionId}/province")
+    @PostMapping("{regionId}/provinces")
     public ProvinceResource createProvince(@PathVariable Long regionId,@RequestBody SaveProvinceResource provinceResource){
         Province province = convertToEntity(provinceResource);
         return convertToResource(provinceService.createProvinceByRegionId(regionId,province));
@@ -55,7 +55,7 @@ public class ProvinceController {
             tags = "Province")
     @ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Should retrieve all Postulations by freelancerId",
             content = @Content(mediaType = "application/json"))})
-    @PutMapping("{regionId}/province/{provinceId}")
+    @PutMapping("{regionId}/provinces/{provinceId}")
     public ProvinceResource updateProvince(@PathVariable Long regionId,@PathVariable Long provinceId,@RequestBody SaveProvinceResource provinceResource){
         Province province = convertToEntity(provinceResource);
         return convertToResource(provinceService.updateProvince(regionId,provinceId,province));
@@ -64,7 +64,7 @@ public class ProvinceController {
             tags = "Province")
     @ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Should retrieve all Postulations by freelancerId",
             content = @Content(mediaType = "application/json"))})
-    @DeleteMapping("{regionId}/province/{provinceId}")
+    @DeleteMapping("{regionId}/provinces/{provinceId}")
     public ResponseEntity<?> deleteProvince(@PathVariable Long regionId,@PathVariable Long provinceId){
         return provinceService.deleteProvince(regionId,provinceId);
     }

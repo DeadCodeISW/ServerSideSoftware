@@ -37,7 +37,7 @@ public class DistrictController {
             tags = "District")
     @ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Should retrieve a Postulations by provinceId",
             content = @Content(mediaType = "application/json"))})
-    @GetMapping("/{provinceId}/district/{districtId}")
+    @GetMapping("/{provinceId}/districts/{districtId}")
     public DistrictResource getDistrictByIdAndProvinceId(@PathVariable Long provinceId,@PathVariable Long districtId){
         Optional<District> district = districtService.getDistrictByIdAndProvinceId(districtId,provinceId);
         return district.map(this::convertToResource).orElse(null);

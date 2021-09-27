@@ -1,7 +1,7 @@
 ---
 applications:
-  - name: ezlabor-api
-    path: target/ezlabor-api.jar
+  - name: freelanceworld-api
+    path: target/freelanceworld-api.jar
     memory: 4096M
     instances: 1
     buildpacks:

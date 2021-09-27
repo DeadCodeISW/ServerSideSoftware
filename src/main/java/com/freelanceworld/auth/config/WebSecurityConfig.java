@@ -81,6 +81,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/login/**").permitAll()
                 .antMatchers("/api/offers/**").permitAll()
                 .antMatchers("/api/postulations/**").permitAll()
+                .antMatchers("/api/regions/**").permitAll()
+                .antMatchers("/api/{regionId}/provinces/**").permitAll()
+                .antMatchers("/api/{provinceId}/districts/**").permitAll()
                 .antMatchers("/freelance-world-crud-api-docs/**").permitAll()
                 .antMatchers("/swagger-ui/**").permitAll()
                 .anyRequest().authenticated();
